@@ -13135,7 +13135,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Supervised-Learning">Supervised Learning<a class="anchor-link" href="#Supervised-Learning">&#182;</a></h2><h2 id="Project:-Finding-Donors-for-CharityML">Project: Finding Donors for <em>CharityML</em><a class="anchor-link" href="#Project:-Finding-Donors-for-CharityML">&#182;</a></h2>
+<h2 id="Supervised-Learning">Supervised Learning<a class="anchor-link" href="#Supervised-Learning">&#182;</a></h2><h2 id="Project:-Finding-Donors-for-CharityML">Project: Finding Donors for <em>CharityML</em><a class="anchor-link" href="#Project:-Finding-Donors-for-CharityML">&#182;</a></h2><p>By: Satrio Putra</p>
+
 </div>
 </div>
 </div>
@@ -13149,6 +13150,39 @@ div#notebook {
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">platform</span> <span class="k">import</span> <span class="n">python_version</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python version used while working this project is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">python_version</span><span class="p">()))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Python version used while working this project is: 3.6.3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13186,7 +13220,6 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="k">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="k">import</span> <span class="n">GaussianNB</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestClassifier</span><span class="p">,</span> <span class="n">AdaBoostClassifier</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LogisticRegression</span>
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVC</span>
 <span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="k">import</span> <span class="n">clone</span>
 
@@ -13313,7 +13346,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;income&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Finding unique values in income column</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;income&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13965,7 +13999,7 @@ It is a ratio of true positives(words classified as spam, and which are actually
 <li>What makes this model a good candidate for the problem, given what you know about the data?</li>
 </ul>
 <p><strong> HINT: </strong></p>
-<p>Structure your answer in the same format as above^, with 4 parts for each of the three models you pick. Please include references with your answer.</p>
+<p>Structure your answer in the same format as above, with 4 parts for each of the three models you pick. Please include references with your answer.</p>
 
 </div>
 </div>
@@ -13974,84 +14008,81 @@ It is a ratio of true positives(words classified as spam, and which are actually
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p><strong>Naive Bayes</strong><br></p>
-<blockquote><p>Naive Bayes (NB) is a very simple algorithm based around conditional probability and counting. Essentially, your model is actually a probability table that gets updated through your training data. To predict a new observation, you'd simply "look up" the class probabilities in your "probability table" based on its feature values. It's called "naive" because its core assumption of conditional independence (i.e. all input features are independent from one another) rarely holds true in the real world.<br></p>
+<p><strong>Naive Bayes</strong>
+Naive Bayes (NB) is a very simple algorithm based on conditional probability and counting called Bayes' Theorem. This algorithm calculates and create probability table from your data. To predict a new observation, you'd simply "look up" the class probabilities in your "probability table" based on its feature values. Then it will search the class probabilities in the table to make prediction. Naive here means that this algorithm use asumption that all input features is independent of each other.<br></p>
 <ul>
-<li>Strengths:<br>
-Even though the conditional independence assumption rarely holds true, NB models actually perform surprisingly well in practice, especially for how simple they are. They are easy to implement and can scale with your dataset.<br></li>
-<li>Weaknesses:<br>
-Due to their sheer simplicity, NB models are often beaten by models properly trained and tuned using the previous algorithms listed.</br></li>
-</ul>
-</blockquote>
-<p><a href="https://elitedatascience.com/machine-learning-algorithms">https://elitedatascience.com/machine-learning-algorithms</a>&lt;/br&gt;</p>
-<blockquote><p>Naive Bayes (NB) is an extremely basic algorithm based around conditional probability and counting. Basically, your model is really a likelihood table that gets updated through your training data. To predict an another perception, you’d basically “look up” the class probabilities in your “probability table” in view of its feature values.<br>
-It’s called “naive” because its core assumption of conditional independence seldom holds true in reality.<br></p>
-<ul>
-<li>Strengths:<br>
-Even though the conditional independence assumption rarely holds true, NB models actually perform shockingly well in practice, especially for how straightforward they are. They are very easy to implement and can scale with your dataset.<br></li>
-<li>Weaknesses:<br>
-Due to their sheer effortlessness , NB models are often beaten by models legitimately trained and tuned utilizing the past algorithms recorded.<br></li>
-</ul>
-</blockquote>
-<p><a href="https://favouriteblog.com/machine-learning-algorithms-which-one-to-choose-for-your-problem/">https://favouriteblog.com/machine-learning-algorithms-which-one-to-choose-for-your-problem/</a><br></p>
-<blockquote><p>Real-World Application:<br>
-Text Classification, Spam filtering, Recommendation System.<br></p>
-</blockquote>
-<p><a href="https://medium.com/machine-learning-bites/machine-learning-supervised-learning-algorithms-summary-76adc41b8ecc">https://medium.com/machine-learning-bites/machine-learning-supervised-learning-algorithms-summary-76adc41b8ecc</a><br></p>
-<p><strong>Support Vector Machines (SVM)</strong><br></p>
-<blockquote><ul>
-<li>STRENGTHS:<br><ol>
-<li>It works well in complicated domains.<br></li>
-<li>It works well with outliers (doesn’t get affected by them as it uses more relevant points to make the separation).<br></li>
-<li>It works for non-linear classifications (using kernel, such as Gaussian Kernels).<br></li>
+<li>Strengths:<ol>
+<li>Very fast training time.<br></li>
+<li>Use low computational resources.<br></li>
 </ol>
 </li>
-<li>WEAKNESSES:<br><ol>
-<li>Doesn’t work well for large datasets and with a lot of noise.<br></li>
-<li>The choice of a good Kernel might be complicated.<br></li>
+<li>Weaknesses:
+The parameter is very simple with make it is hard to tune. This model is fast but has lower score than other better tuned models.<br></li>
+<li>Real World Application:<ol>
+<li>Text Classification.</li>
+<li>Spam filtering.</li>
+<li>Recommendation System.</li>
 </ol>
 </li>
-<li>REAL-WORLD APPLICATION:<br>
-Spam email filtering.<br></li>
 </ul>
+<blockquote><p><em>References:</em></p>
+<ol>
+<li><a href="https://elitedatascience.com/machine-learning-algorithms">https://elitedatascience.com/machine-learning-algorithms</a><br></li>
+<li><a href="https://medium.com/machine-learning-bites/machine-learning-supervised-learning-algorithms-summary-76adc41b8ecc">https://medium.com/machine-learning-bites/machine-learning-supervised-learning-algorithms-summary-76adc41b8ecc</a><br></li>
+</ol>
 </blockquote>
-<p><a href="https://medium.com/machine-learning-bites/machine-learning-supervised-learning-algorithms-summary-76adc41b8ecc">https://medium.com/machine-learning-bites/machine-learning-supervised-learning-algorithms-summary-76adc41b8ecc</a><br></p>
-<blockquote><p>Support vector machines (SVM) use a mechanism called kernels, which essentially calculate distance between two observations. The SVM algorithm then finds a decision boundary that maximizes the distance between the closest members of separate classes. For example, an SVM with a linear kernel is similar to logistic regression. Therefore, in practice, the benefit of SVM's typically comes from using non-linear kernels to model non-linear decision boundaries.<br></p>
+<p><strong>Support Vector Machines (SVM)</strong>
+Support Vector Machine (SVM) use kernel to find separation between two group or more. SVM search for highest distance between group to separate them.<br></p>
 <ul>
-<li>Strengths:<br>
-SVM's can model non-linear decision boundaries, and there are many kernels to choose from. They are also fairly robust against overfitting, especially in high-dimensional space.<br></li>
-<li>Weaknesses:<br>
-However, SVM's are memory intensive, trickier to tune due to the importance of picking the right kernel, and don't scale well to larger datasets. Currently in the industry, random forests are usually preferred over SVM's.<br></li>
+<li>Strength:<ol>
+<li>Works well with outliers since this algorithm only find separation or boundaries.</li>
+<li>Can model linear and non-linear boundaries, since there several kernel that can be used.</li>
+</ol>
+</li>
+<li>Weakness:<ol>
+<li>Don't scale well with large dataset.</li>
+<li>Trickier to tune because different kernel use different parameter.</li>
+</ol>
+</li>
+<li>Real World Application:<ol>
+<li>Bioinformatics (Protein fold and remote homology detection)</li>
+<li>Classification of images</li>
+</ol>
+</li>
 </ul>
+<blockquote><p><em>References:</em></p>
+<ol>
+<li><a href="https://elitedatascience.com/machine-learning-algorithms">https://elitedatascience.com/machine-learning-algorithms</a><br></li>
+<li><a href="https://growthhackers.com/articles/real-life-applications-of-svm-support-vector-machines">https://growthhackers.com/articles/real-life-applications-of-svm-support-vector-machines</a><br></li>
+</ol>
 </blockquote>
-<p><a href="https://elitedatascience.com/machine-learning-algorithms">https://elitedatascience.com/machine-learning-algorithms</a><br></p>
-<blockquote><p>Instead of building trees to separate data, we can use algorithms to create hyperplanes in space that separate the data, guided by the labels that we have. The approach is known as support vector machines (SVMs). SVMs allow some violations to this separation—not all the points within an area in hyperspace need to have the same label—but the distance between boundary-defining points of a certain label and the boundary-defining points of another label should be maximized as much as possible. Also, the boundaries do not have to be linear—we can use nonlinear kernels to more flexibly separate the data.<br></p>
-</blockquote>
-<p><a href="https://www.oreilly.com/library/view/hands-on-unsupervised-learning/9781492035633/ch01.html">https://www.oreilly.com/library/view/hands-on-unsupervised-learning/9781492035633/ch01.html</a><br></p>
-<blockquote><p>The Support Vector Machine finds the partition (here, an hyperplane in a n- measurements space) that augments the margin between two data populations . By augmenting this marge, we numerically diminish the inclination to overfit the learning data. The separation boosting the margin between the two populations depends on support vectors. These support vectors are the data closest to the separation and defining the marge . Once the hyperplane is trained, you just need to store the support vectors for the forecast. This spares a great deal of memory when storing the model.<br>
-During prediction, you only need to know if your new input data point is “below” or “above” your hyperplane.</p>
+<p><strong>AdaBoost Classifier</strong>
+AdaBoost, short for Adaptive Boosting is machine learning model that is combining several simple or "weak" learner algorithms into better or "strong" learner. Each learner is given simple random problem and then scored based on whether their prediction is good or not. Learner with good score is then given higher weight than the bad one. Then these learners then combined after they have been trained and become "stronger" learner.<br></p>
+<p>In implementation, AdaBoost creates several simple classifier based on randomness. Randomness here means it uses subset of features and sample of data for each learner. While other algorithm uses full data for training, randomness in AdaBoost makes it is prone to overfitting, which make this algorithm very useful and become top tier classifier.<br></p>
 <ul>
-<li>Strengths:<br>
-  • is numerically intended to lessen the overfitting by amplifying the margin between data points<br>
-  • prediction is fast<br>
-  • can deal a lot of data and a lot of features (for instance high dimensional problems)<br>
-  • doesn’t take excessively memory to store.<br></li>
+<li>Strength:<ol>
+<li>Parameter is basic and easy to understand. Also, this algorithm has very good result only using default parameter.<br></li>
+<li>Chance to overfit is low.<br></li>
+<li>Perform well with lots of data.<br></li>
+</ol>
+</li>
+<li>Weakness:<ol>
+<li>Longer training time.<br></li>
+<li>Using higher computational resource depending on the parameters used.<br></li>
+</ol>
+</li>
+<li>Real World Application:<ol>
+<li>Predicting customer churn</li>
+<li>Recomendation system</li>
+</ol>
+</li>
 </ul>
+<blockquote><p><em>References:</em></p>
+<ol>
+<li><a href="https://favouriteblog.com/machine-learning-algorithms-which-one-to-choose-for-your-problem/">https://favouriteblog.com/machine-learning-algorithms-which-one-to-choose-for-your-problem/</a><br></li>
+<li><a href="https://hackernoon.com/under-the-hood-of-adaboost-8eb499d78eab">https://hackernoon.com/under-the-hood-of-adaboost-8eb499d78eab</a><br></li>
+</ol>
 </blockquote>
-<p><a href="https://favouriteblog.com/machine-learning-algorithms-which-one-to-choose-for-your-problem/">https://favouriteblog.com/machine-learning-algorithms-which-one-to-choose-for-your-problem/</a><br></p>
-<p><strong>AdaBoost Classifier</strong></p>
-<blockquote><p>Boosting is like Random Forest since it trains several few models to make a bigger one. For this situation, models are trained one after the other. Here, the littler models are named “ weak predictors “. The Boosting principle is to increment the significance of data that have not been very much trained by the previous weak predictor. Similarly, the significance of the learning data that has been well trained before is diminished. By doing these two things, the following weak-predictor will learn better. Subsequently, the last predictor model, a serial mix of the weak predictors, will be equipped of predicting complex new data.<br></p>
-<ul>
-<li>Strengths:<br>
-  • parameterization is very basic, even an extremely weak-predictor may permit the training of a solid model toward the end<br>
-  • is very strong to overfitting<br>
-  • performs well for a lot data<br></li>
-<li>Weakness:<br>
-  • training may be tedious<br>
-  • may take a great deal of memory, depending on the weak-predictor.<br></li>
-</ul>
-</blockquote>
-<p><a href="https://favouriteblog.com/machine-learning-algorithms-which-one-to-choose-for-your-problem/">https://favouriteblog.com/machine-learning-algorithms-which-one-to-choose-for-your-problem/</a><br></p>
 
 </div>
 </div>
@@ -14299,7 +14330,7 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p>AdaBoost!<br>
-AdaBoost model has almost the same F-score with SVC model, but with faster traning time. AdaBoost model also fast, just like the Gaussian Naive Bayes but with better test prediction score.<br></p>
+Based in result above, AdaBoost has some advantages. AdaBoost model has almost the same F-score with SVC model, but with faster traning time. AdaBoost model also fast, just like the Gaussian Naive Bayes but with better test prediction score.<br></p>
 <p>Ensemble methods such as AdaBoost is optimized for both variance and bias. Randomness is introduced in AdaBoost to prevent the model to "remember" the data or so called overfitting. Randomness is used in this two ways:<br></p>
 <ol>
 <li>Subset features: only subset of the features are used.<br></li>
@@ -14540,7 +14571,7 @@ Final F-score on the testing data: 0.7425
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>On table above we can see our models results. Our optimized model is better than the first unoptimized model we trained, though it has almost the same accuracy result and slightly better F-score. Accuracy score improved for 1% and we got almost 2% for the F-score. When we compare our last model, it has far way better result than our naive predictor we had made before.</p>
+<p>On table above we can see our models results. Our optimized model is better than the first unoptimized model we trained, though it has almost the same accuracy result and slightly better F-score. Accuracy score improved for 1% and we got almost 2% for the F-score. When we compare our last model, it has far way better result than our naive predictor which we had made before.</p>
 
 </div>
 </div>
@@ -14746,7 +14777,7 @@ F-score on testing data: 0.7066
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <p>Well, the result from reduced data is alike with what we got before. We have similar accuracy score and slightly worse F-score with only almost 4% difference. This means that those 5 important features are representing the data we have. This can be beneficial for us because it makes our calculation faster and need less computational cost.<br></p>
-<p>If training time was a crucial factor, we need to consider about it. Let say that new data has arrived and we need get the result in just few hours. Then it is very useful to use reduced data and get insight from it. But in case that we got plenty of time, we should consider full data to be inputed to our model since it gives us better F-score which mean better prediction and more donor we got.</p>
+<p>If training time was a crucial factor, we need to consider about it. Let say that new data has arrived and we need get the result in just few hours. Then it is very useful to use reduced data and get insight from it. But in case that we got plenty of time, we should consider full data to be inputed in our model since it gives us better F-score which mean better prediction and the more donor we got.</p>
 
 </div>
 </div>
@@ -14771,7 +14802,7 @@ F-score on testing data: 0.7066
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!!</span>jupyter nbconvert *.ipynb
@@ -14787,14 +14818,14 @@ F-score on testing data: 0.7066
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[25]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>[&#39;[NbConvertApp] Converting notebook finding_donors.ipynb to html&#39;,
- &#39;[NbConvertApp] Writing 504783 bytes to finding_donors.html&#39;]</pre>
+ &#39;[NbConvertApp] Writing 505154 bytes to finding_donors.html&#39;]</pre>
 </div>
 
 </div>
